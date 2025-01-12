@@ -714,11 +714,11 @@ const defaultOptions = {
     kind: OptionKind.VIEWER
   },
   forcePageColors: {
-    value: false,
+    value: true, // false
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   pageColorsBackground: {
-    value: "Canvas",
+    value: "#a5a5a5", // "Canvas"
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   pageColorsForeground: {
