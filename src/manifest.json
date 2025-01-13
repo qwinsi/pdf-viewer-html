@@ -1,0 +1,17 @@
+{
+  "name": "PDF Viewer",
+  "short_name": "pdf-viewer",
+  "theme_color": "#3d404d",
+  "background_color": "#eeeeee",
+  "display": "standalone",
+  "scope": "/pdf-viewer-html/",
+  "start_url": "https://qwinsi.github.io/pdf-viewer-html/index.html",
+  "description": "HTML5 webpage for viewing PDF files",
+  "orientation": "any",
+  "icons": [
+      {
+          "src": "https://qwinsi.github.io/pdf-viewer-html/favicon.png",
+          "sizes": "160x160"
+      }
+  ]
+}
