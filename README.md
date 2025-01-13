@@ -2,6 +2,10 @@
 
 A simple HTML5 webpage for viewing PDF files based on Mozilla's [PDF.js](https://github.com/mozilla/pdf.js) library.
 
+## Online Demo
+
+A static site is hosted on [GitHub Pages](https://qwinsi.github.io/pdf-viewer-html/) for demonstration.
+
 ## Keyboard Shortcuts
 
 The following keyboard shortcuts are inherited from the PDF.js project.
