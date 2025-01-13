@@ -1,0 +1,10 @@
+{
+  "name": "pdf-viewer-html",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "gh-pages -d src"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
