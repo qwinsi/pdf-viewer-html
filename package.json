@@ -9,10 +9,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
-    "autoprefixer": "^10.4.19",
-    "cross-env": "^7.0.3",
-    "express": "^4.19.2",
-    "rimraf": "^3.0.2",
     "vite": "5.0.7"
   },
   "dependencies": {
