@@ -758,7 +758,7 @@ const defaultOptions = {
     kind: OptionKind.API
   },
   cMapUrl: {
-    value: "../web/cmaps/",
+    value: "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/",
     kind: OptionKind.API
   },
   disableAutoFetch: {
@@ -810,7 +810,7 @@ const defaultOptions = {
     kind: OptionKind.API
   },
   standardFontDataUrl: {
-    value: "../web/standard_fonts/",
+    value: "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/standard_fonts/",
     kind: OptionKind.API
   },
   useSystemFonts: {
@@ -15361,5 +15361,3 @@ var __webpack_exports__PDFViewerApplication = __webpack_exports__.PDFViewerAppli
 var __webpack_exports__PDFViewerApplicationConstants = __webpack_exports__.PDFViewerApplicationConstants;
 var __webpack_exports__PDFViewerApplicationOptions = __webpack_exports__.PDFViewerApplicationOptions;
 export { __webpack_exports__PDFViewerApplication as PDFViewerApplication, __webpack_exports__PDFViewerApplicationConstants as PDFViewerApplicationConstants, __webpack_exports__PDFViewerApplicationOptions as PDFViewerApplicationOptions };
-
-//# sourceMappingURL=viewer.mjs.map
