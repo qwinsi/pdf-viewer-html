@@ -1,0 +1,9 @@
+/* custom styles goes here */
+.hidden {
+    display: none;
+}
+
+#home {
+    background-color: white;
+    height: 100%;
+}

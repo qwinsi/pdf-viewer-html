@@ -27,7 +27,8 @@ See https://github.com/adobe-type-tools/cmap-resources
     <meta name="google" content="notranslate">
     <link rel="icon" href="favicon.png">
     <link rel="manifest" href="manifest.json">
-    <title>PDF.js viewer</title>
+    <script src="script.js" defer></script>
+    <title>PDF viewer</title>
 
 <!-- This snippet is used in production (included from viewer.html) -->
 <link rel="resource" type="application/l10n" href="locale/locale.json">
@@ -36,10 +37,16 @@ See https://github.com/adobe-type-tools/cmap-resources
     <link rel="stylesheet" href="viewer.css">
 
   <script src="viewer.mjs" type="module"></script>
-  <script defer src="script.js"></script>
   </head>
 
   <body tabindex="0">
+    <noscript>
+      <div style="color: red;font-size: 2em;">
+        We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.
+      </div>
+    </noscript>
+    <div id="home"></div>
+    <script type="module" src="/src/main.js"></script>
     <div id="outerContainer">
 
       <div id="sidebarContainer">
