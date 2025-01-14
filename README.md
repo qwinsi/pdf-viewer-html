@@ -30,3 +30,17 @@ The following keyboard shortcuts are specifically added in this project.
 | Keybinding | Command        |
 | ---------- | -------------- |
 | Ctrl+B     | Toggle Sidebar |
+
+## Open-source License
+
+GPL-3.0 License. See [LICENSE](LICENSE) for details.
+
+## Credits
+
+- [PDF.js](https://github.com/mozilla/pdf.js)
+
+This project is impossible without the PDF.js library.
+
+- [SumatraPDF](https://www.sumatrapdfreader.org/)
+
+The UI design of the homepage is learned from SumatraPDF.
