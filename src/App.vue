@@ -139,7 +139,7 @@ onMounted(async function () {
                 <div class="clip-container">
                     <img class="clip" :src="item.thumbnail" v-on:click="() => open_recent_pdf(item)" />
                 </div>
-                <p v-on:click="() => open_recent_pdf(item)">{{ item.filename }}</p>
+                <p><a v-on:click="() => open_recent_pdf(item)">{{ item.filename }}</a></p>
             </div>
         </div>
         <div>
