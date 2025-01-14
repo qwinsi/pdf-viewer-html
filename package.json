@@ -6,8 +6,8 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "predeploy": "build",
-    "deploy": "gh-pages -d src"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
