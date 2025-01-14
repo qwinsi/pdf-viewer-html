@@ -5,7 +5,6 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/pdf-viewer-html/',
   plugins: [
     vue(),
   ],
@@ -18,7 +17,7 @@ export default defineConfig({
     // A disgusting behavior of vite. May be fixed in the future release.
     // https://github.com/vitejs/vite/issues/15354
     rollupOptions: {
-      external: ['/pdf-viewer-html/viewer.mjs'],
+      external: ['viewer.mjs'],
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
       },
