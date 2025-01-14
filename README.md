@@ -1,6 +1,6 @@
 # pdf-viewer-html
 
-A simple HTML5 webpage for viewing PDF files based on Mozilla's [PDF.js](https://github.com/mozilla/pdf.js) library.
+A HTML5 webpage for viewing local PDF files based on Mozilla's [PDF.js](https://github.com/mozilla/pdf.js) library.
 
 It is tested on Chrome and Chromium-based Edge. Currently it's not working on Firefox due to lack of support for the [File System Access API](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access).
 
