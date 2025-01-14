@@ -4,12 +4,12 @@
   "theme_color": "#3d404d",
   "background_color": "#eeeeee",
   "display": "standalone",
-  "start_url": "https://pdf-viewer-html-rho.vercel.app/index.html",
+  "start_url": "index.html",
   "description": "HTML5 webpage for viewing PDF files",
   "orientation": "any",
   "icons": [
       {
-          "src": "https://pdf-viewer-html-rho.vercel.app/favicon.png",
+          "src": "favicon.png",
           "sizes": "512x512"
       }
   ]
