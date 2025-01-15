@@ -47,6 +47,11 @@ See https://github.com/adobe-type-tools/cmap-resources
     </noscript>
     <div id="home"></div>
     <script type="module" src="src/main.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register("/sw.js");
+      }
+     </script>
     <div id="outerContainer">
 
       <div id="sidebarContainer">
