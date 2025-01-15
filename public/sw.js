@@ -122,18 +122,35 @@ self.addEventListener("install", (event) => {
     event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(precacheResources)));
 });
 
+function cleanResponse(response) {
+    const clonedResponse = response.clone();
+
+    // Not all browsers support the Response.body stream, so fall back to reading
+    // the entire body into memory as a blob.
+    const bodyPromise = 'body' in clonedResponse ?
+        Promise.resolve(clonedResponse.body) :
+        clonedResponse.blob();
+
+    return bodyPromise.then((body) => {
+        // new Response() is happy when passed either a stream or a Blob.
+        return new Response(body, {
+            headers: clonedResponse.headers,
+            status: clonedResponse.status,
+            statusText: clonedResponse.statusText,
+        });
+    });
+}
+
 self.addEventListener("fetch", (event) => {
     console.log("[fetch] event.request", event.request)
     event.respondWith(
         caches.match(event.request).then((cachedResponse) => {
             if (cachedResponse) {
-                if(cachedResponse.redirected === true) {
+                if (cachedResponse.redirected === true && event.request.url.endsWith("/index.html")) {
                     console.log("[fetch] cachedResponse.redirected", cachedResponse.redirected);
-                    const clonedResponse = cachedResponse.clone();
-                    return clonedResponse.body;
-                } else {
-                    return cachedResponse;
+                    return cleanResponse(cachedResponse);
                 }
+                return cachedResponse;
             }
             return fetch(event.request);
         })
