@@ -60,7 +60,6 @@ const switchView = new SwitchView(['home', 'outerContainer']);
 
 async function open_recent_pdf(item) {
     switchView.switchTo('outerContainer');
-    console.log('open_recent_pdf');
     const app = window.PDFViewerApplication;
     const fileHandle = item.handle;
     if (fileHandle) {

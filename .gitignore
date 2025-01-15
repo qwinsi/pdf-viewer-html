@@ -4,5 +4,5 @@ node_modules/
 dist/
 
 # lock files cause problems to the CI/CD pipeline, so we exclude them
-# yarn.lock
-# package-lock.json
+yarn.lock
+package-lock.json
