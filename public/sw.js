@@ -142,12 +142,14 @@ function cleanResponse(response) {
 }
 
 self.addEventListener("fetch", (event) => {
-    console.log("[fetch] event.request", event.request)
     event.respondWith(
         caches.match(event.request).then((cachedResponse) => {
             if (cachedResponse) {
                 if (cachedResponse.redirected === true && event.request.url.endsWith("/index.html")) {
-                    console.log("[fetch] cachedResponse.redirected", cachedResponse.redirected);
+                    // A cached response of **/index.html may contain a mark of redirected=true,
+                    // which will cause browser to block the response due to security concerns.
+                    // So we need to somehow remove this mark from the response.
+                    // https://stackoverflow.com/questions/45434470/only-in-chrome-service-worker-a-redirected-response-was-used-for-a-reque
                     return cleanResponse(cachedResponse);
                 }
                 return cachedResponse;
