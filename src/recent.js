@@ -1,6 +1,5 @@
-import { get as idbKeyvalGet, set as idbKeyvalSet } from "idb-keyval";
+import * as idbKeyval from "idb-keyval";
 
-const idbKeyval = { get: idbKeyvalGet, set: idbKeyvalSet };
 
 const KEY_RECENT = 'pdf-viewer-html-KEY_RECENT_PDF_FILES';
 const MAX_NUM_RECORDS = 12;
