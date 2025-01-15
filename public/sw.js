@@ -123,13 +123,19 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+    console.log("[fetch] event.request", event.request)
     event.respondWith(
         caches.match(event.request).then((cachedResponse) => {
             if (cachedResponse) {
-                return cachedResponse;
-            } else {
-                return fetch(event.request);
+                if(cachedResponse.redirected === true) {
+                    console.log("[fetch] cachedResponse.redirected", cachedResponse.redirected);
+                    const clonedResponse = cachedResponse.clone();
+                    return clonedResponse.body;
+                } else {
+                    return cachedResponse;
+                }
             }
+            return fetch(event.request);
         })
     );
 });
