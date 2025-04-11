@@ -1,10 +1,9 @@
 /**
  * Resources:
- * - Progressive Web Apps: Going Offline https://developers.google.com/codelabs/pwa-training/pwa03--going-offline
  * - Languages used on the Internet https://en.wikipedia.org/wiki/Languages_used_on_the_Internet
  */
-
-const cacheName = "cache-v1";
+import { setup } from "@qwinsi/utilities-js/sw";
+import { version as APP_VERSION } from "../package.json";
 
 const languages = [
     "en-CA",
@@ -117,44 +116,4 @@ const precacheResources = [
     ...images.map(image => `/images/${image}`),
 ];
 
-self.addEventListener("install", (event) => {
-    console.info("[Service Worker] Caching resources...");
-    event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(precacheResources)));
-});
-
-function cleanResponse(response) {
-    const clonedResponse = response.clone();
-
-    // Not all browsers support the Response.body stream, so fall back to reading
-    // the entire body into memory as a blob.
-    const bodyPromise = 'body' in clonedResponse ?
-        Promise.resolve(clonedResponse.body) :
-        clonedResponse.blob();
-
-    return bodyPromise.then((body) => {
-        // new Response() is happy when passed either a stream or a Blob.
-        return new Response(body, {
-            headers: clonedResponse.headers,
-            status: clonedResponse.status,
-            statusText: clonedResponse.statusText,
-        });
-    });
-}
-
-self.addEventListener("fetch", (event) => {
-    event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            if (cachedResponse) {
-                if (cachedResponse.redirected === true && event.request.url.endsWith("/index.html")) {
-                    // A cached response of **/index.html may contain a mark of redirected=true,
-                    // which will cause browser to block the response due to security concerns.
-                    // So we need to somehow remove this mark from the response.
-                    // https://stackoverflow.com/questions/45434470/only-in-chrome-service-worker-a-redirected-response-was-used-for-a-reque
-                    return cleanResponse(cachedResponse);
-                }
-                return cachedResponse;
-            }
-            return fetch(event.request);
-        })
-    );
-});
+setup(APP_VERSION, precacheResources);

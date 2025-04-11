@@ -1,17 +1,20 @@
 {
   "name": "pdf-viewer-html",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "esbuild src/sw.js --bundle --outdir=public --minify-whitespace",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
+    "esbuild": "^0.25.2",
     "vite": "5.0.7"
   },
   "dependencies": {
+    "@qwinsi/utilities-js": "^0.1.6",
     "idb-keyval": "^6.2.1",
     "vue": "^3.4.29"
   }
