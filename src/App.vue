@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { get_recent_list, add_recent, clear_recent_list } from "./recent";
+import { handleLaunchFileHandles } from "@qwinsi/utilities-js/pwa";
 
 const recentFiles = ref([]);
 
@@ -123,6 +124,11 @@ onMounted(async function () {
             void handleOpenButtonClicked();
         }
     }, true);
+
+    handleLaunchFileHandles(function (fileHandles) {
+        switchView.switchTo('outerContainer');
+        open_pdf_from_handle(fileHandles[0]);
+    });
 });
 </script>
 
