@@ -4,6 +4,16 @@
 }
 
 #home {
-    background-color: white;
     height: 100%;
+    width: 100%;
+
+    background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    #home {
+        color-scheme: dark;
+        background-color: #121212;
+        color: #e0e0e0;
+    }
 }

@@ -220,6 +220,12 @@ button {
     cursor: pointer;
 }
 
+@media (prefers-color-scheme: dark) {
+    button {
+        color: lightblue;
+    }
+}
+
 /*
 How can I display just a portion of an image in HTML/CSS? - Stack Overflow
 https://stackoverflow.com/questions/57725/
