@@ -79,6 +79,13 @@ async function open_recent_pdf(item) {
 
 async function handleOpenButtonClicked() {
     try {
+        if (!window.showOpenFilePicker) {
+            alert(`This App cannot work on this browser.
+Chrome, MS Edge or other Chromium-based browsers are supported.
+It's known that this App cannot work on Firefox and Safari.
+`);
+            return false;
+        }
         const [fileHandle] = await window.showOpenFilePicker({
             types: [{
                 description: "PDF documents",
