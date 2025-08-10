@@ -108,7 +108,7 @@ const precacheResources = [
     "/viewer.css",
     "/script.js",
     "/main.js",
-    "/main.css",
+    "/style.css",
     "/manifest.json",
     "/favicon.png",
     "/locale/locale.json",

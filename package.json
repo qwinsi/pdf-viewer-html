@@ -1,6 +1,6 @@
 {
   "name": "pdf-viewer-html",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
@@ -11,7 +11,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
     "esbuild": "^0.25.2",
-    "vite": "5.0.7"
+    "vite": "^6.0.0"
   },
   "dependencies": {
     "@qwinsi/utilities-js": "^0.1.12",
