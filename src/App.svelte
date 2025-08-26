@@ -42,7 +42,6 @@ class SwitchView {
         this.views = elementIdList.map((id) => {
             return { id: id, element: document.getElementById(id) };
         });
-        this.currentElementId = 0;
     }
 
     switchTo(id) {
@@ -62,7 +61,6 @@ const switchView = new SwitchView(['home', 'outerContainer']);
 
 async function open_recent_pdf(item) {
     switchView.switchTo('outerContainer');
-    const app = window.PDFViewerApplication;
     const fileHandle = item.handle;
     if (fileHandle) {
         if(await fileHandle.queryPermission({ mode: 'read' }) !== 'granted') {
