@@ -9,12 +9,13 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.5",
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "esbuild": "^0.25.2",
     "vite": "^6.0.0"
   },
   "dependencies": {
     "@qwinsi/utilities-js": "^0.1.12",
+    "svelte": "^5.35.5",
     "idb-keyval": "^6.2.1",
     "vue": "^3.4.29"
   }

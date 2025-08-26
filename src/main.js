@@ -1,6 +1,9 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import "./assets/style.css"
+import { mount } from 'svelte';
+import App from './App.svelte';
+import './assets/style.css';
 
+const app = mount(App, {
+  target: document.getElementById('home'),
+});
 
-createApp(App).mount('#home');
+export default app;

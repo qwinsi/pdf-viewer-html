@@ -1,9 +1,9 @@
-<script setup>
-import { ref, onMounted } from "vue";
+<script>
+import { onMount } from "svelte";
 import { get_recent_list, add_recent, clear_recent_list } from "./recent";
 import { handleLaunchFileHandles } from "@qwinsi/utilities-js/pwa";
 
-const recentFiles = ref([]);
+let recentFiles = $state([]);
 
 // return string of DataURL format of thumbnail image of the first page
 // looks like "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
@@ -18,6 +18,7 @@ function get_thumbnail(pageNumber) {
         return "no-thumbnail.svg";
     }
 }
+
 
 async function open_pdf_from_handle(fileHandle) {
     const app = window.PDFViewerApplication;
@@ -111,12 +112,12 @@ It's known that this App cannot work on Firefox and Safari.
 
 async function handleClearButtonClicked() {
     void clear_recent_list();
-    recentFiles.value = [];
+    recentFiles = [];
 }
 
-onMounted(async function () {
+onMount(async function () {
     get_recent_list().then((recent_list) => {
-        recentFiles.value = recent_list;
+        recentFiles = recent_list;
     });
 
     switchView.switchTo('home');
@@ -139,29 +140,29 @@ onMounted(async function () {
 });
 </script>
 
-<template>
-    <main>
-        <h1>PDF Viewer</h1>
-        <div class="recent-nav">
-            <h2>Recent Files</h2>
-            <button v-on:click="handleClearButtonClicked">Clear Recent List</button>
-        </div>
-        <div class="recent-container">
-            <div class="recent-item" v-for="(item, index) in recentFiles" :key="index">
+<main>
+    <h1>PDF Viewer</h1>
+    <div class="recent-nav">
+        <h2>Recent Files</h2>
+        <button onclick={handleClearButtonClicked}>Clear Recent List</button>
+    </div>
+    <div class="recent-container">
+        {#each recentFiles as item}
+            <div class="recent-item">
                 <div class="clip-container">
-                    <img class="clip" :src="item.thumbnail" v-on:click="() => open_recent_pdf(item)" />
+                    <img class="clip" src={item.thumbnail} onclick={() => open_recent_pdf(item)} alt={item.filename} />
                 </div>
-                <p><a v-on:click="() => open_recent_pdf(item)">{{ item.filename }}</a></p>
+                <p><span onclick={() => open_recent_pdf(item)}>{ item.filename }</span></p>
             </div>
-        </div>
-        <div>
-            <button v-on:click="handleOpenButtonClicked">Open a document</button>
-        </div>
-    </main>
+        {/each}
+    </div>
+    <div>
+        <button onclick={handleOpenButtonClicked}>Open a document</button>
+    </div>
+</main>
 
-</template>
 
-<style scoped>
+<style>
 main {
     margin-left: 40px;
     margin-right: 40px;
